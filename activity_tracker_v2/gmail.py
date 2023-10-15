@@ -37,11 +37,3 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
     raw = raw.decode()
     body = {'raw': raw}
     return body
-
-to = "manansoni.soni77@gmail.com"
-sender = "mananapps7@gmail.com"
-subject = "subject"
-msgHtml = "Hi<br/>Html Email"
-msgPlain = "Hi\nPlain Email"
-
-SendMessage(sender, to, subject, msgHtml, msgPlain)
