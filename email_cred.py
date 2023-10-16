@@ -2,7 +2,6 @@ import os
 import oauth2client
 from oauth2client import client, tools, file
 import json
-from dotenv import load_dotenv
 
 CLIENT_SECRET_FILE = 'secret.json'
 CREDENTIAL_FILE = 'email_credential.json'
@@ -13,9 +12,6 @@ APPLICATION_NAME = 'email_app_python'
 credential_dir = os.path.curdir
 credential_path = os.path.join(credential_dir, CREDENTIAL_FILE)
 store = oauth2client.file.Storage(credential_path)
-
-dotenv_path = os.path.join(credential_dir, '.env')
-load_dotenv(dotenv_path)
 
 def create_credentials():
     flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)

@@ -1,10 +1,11 @@
+import os
 import ssl
 from celery import Celery
 
 app = Celery(
     'celery-worker',
-    broker='rediss://red-cklp56rj89us7381j49g:u4zZSfn7Zsc8Ak99xRYEgoT9CXbky75E@singapore-redis.render.com:6379',
-    backend='rediss://red-cklp56rj89us7381j49g:u4zZSfn7Zsc8Ak99xRYEgoT9CXbky75E@singapore-redis.render.com:6379',
+    broker=os.environ.get('REDIS_URI'),
+    backend=os.environ.get('REDIS_URI'),
     broker_use_ssl = {
         'ssl_cert_reqs': ssl.CERT_NONE
      },
