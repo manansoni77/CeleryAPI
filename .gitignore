@@ -1,0 +1,4 @@
+**/__pycache__/**
+**/.env
+**/set_env.sh
+**/*.json
