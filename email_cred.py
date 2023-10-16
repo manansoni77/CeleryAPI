@@ -9,8 +9,8 @@ SCOPES = 'https://www.googleapis.com/auth/gmail.send'
 APPLICATION_NAME = 'email_app_python'
 
 
-with open(CLIENT_SECRET_FILE, 'w') as f:
-    f.write(json.dumps(json.loads(os.environ.get('EMAIL_SECRET'))))
+with open(CREDENTIAL_FILE, 'w') as f:
+    f.write(json.dumps(json.loads(os.environ.get('EMAIL_CREDENTIAL'))))
 
 credential_dir = os.path.curdir
 credential_path = os.path.join(credential_dir, CREDENTIAL_FILE)
@@ -29,6 +29,8 @@ def get_credentials():
     return credentials
 
 if __name__ == '__main__':
+    with open(CLIENT_SECRET_FILE, 'w') as f:
+        f.write(json.dumps(json.loads(os.environ.get('EMAIL_SECRET'))))
     create_credentials()
     print('Credentials stored at ' + credential_path)
 
