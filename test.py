@@ -1,8 +1,10 @@
 from worker import worker
 
+worker.control.purge()
+
 print('Application started')
 
-numTasks = 100
+numTasks = 1
 tasks = []
 
 if __name__ == '__main__':
