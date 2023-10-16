@@ -2,14 +2,14 @@ from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
-from worker import app
+from worker import worker
 
 SERVER_SMTP_HOST = 'localhost'
 SERVER_SMTP_PORT = 1025
 SENDER_ADDRESS = 'todoapp@gmail.com'
 SENDER_PASSWORD = ''
 
-@app.task(name='send_email')
+@worker.task(name='send_email')
 def send_email(to_address, subject, message, attachments = []):
     msg = MIMEMultipart()
     msg['To'] = to_address

@@ -2,7 +2,7 @@ import os
 import ssl
 from celery import Celery
 
-app = Celery(
+worker = Celery(
     'celery-worker',
     broker=os.environ.get('REDIS_URI'),
     backend=os.environ.get('REDIS_URI'),
@@ -15,7 +15,7 @@ app = Celery(
     include=['activity_tracker_v2'],
 )
 
-@app.task(name='addTask')  # Named task
+@worker.task(name='addTask')  # Named task
 def add(x, y):
     print('Task Add started')
     s = x + y

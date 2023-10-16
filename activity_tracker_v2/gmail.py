@@ -7,10 +7,10 @@ from apiclient import errors, discovery
 # from email.mime.image import MIMEImage
 # from email.mime.audio import MIMEAudio
 # from email.mime.base import MIMEBase
-from worker import app
+from worker import worker
 from email_cred import get_credentials
 
-@app.task(name='sendGmail')
+@worker.task(name='sendGmail')
 def SendMessage(sender, to, subject, msgHtml, msgPlain):
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
