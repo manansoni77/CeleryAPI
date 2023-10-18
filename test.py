@@ -19,11 +19,12 @@ if __name__ == '__main__':
         print('Received result:', result)
     
     to = "manansoni.soni77@gmail.com"
-    sender = "mananapps7@gmail.com"
     subject = "subject"
     msgHtml = "Hi<br/>Html Email"
     msgPlain = "Hi\nPlain Email"
 
-    worker.send_task('sendGmail', (sender, to, subject, msgHtml, msgPlain))
+    worker.send_task('sendGmail', (to, subject, msgHtml))
+    
+    worker.send_task('welcomeMail', ('mananrox77', to))
 
     print('Application ended')
