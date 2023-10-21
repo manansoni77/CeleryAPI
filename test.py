@@ -26,5 +26,7 @@ if __name__ == '__main__':
     worker.send_task('sendGmail', (to, subject, msgHtml))
     
     worker.send_task('welcomeMail', ('mananrox77', to))
+    
+    worker.send_task('sendMonthlyReport')
 
     print('Application ended')
